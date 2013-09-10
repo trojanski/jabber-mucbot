@@ -59,6 +59,7 @@ module Jabber
     #     :password   => 'secret',
     #     :server     => 'example.com',
     #     :room       => 'myroom',
+    #     :roompasswd => 'room_password' # can be empty
     #     :debug      => true, # optional
     #     :keep_alive => true # optional
     #   )
@@ -123,9 +124,10 @@ module Jabber
       nick = @config[:nick]
       serv = @config[:server]
       room = @config[:room]
+      roompasswd = @config[:roompasswd]
 
       jid = Jabber::JID.new("#{room}@conference.#{serv}/#{nick}")
-      @room.join(jid)
+      @room.join(jid,roompasswd)
 
       @room.add_message_callback do |message|
         #TODO do not process messages before bot connection

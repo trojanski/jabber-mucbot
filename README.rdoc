@@ -31,7 +31,8 @@ Bots are created by defining commands powered by regular expressions and Ruby.
     :nick      => 'bot',
     :password  => 'secret',
     :server    => 'example.org',
-    :room      => 'room'
+    :room       => 'room',
+    :roompasswd => ''
   }
 
   bot = Jabber::MUCBot.new(config)
